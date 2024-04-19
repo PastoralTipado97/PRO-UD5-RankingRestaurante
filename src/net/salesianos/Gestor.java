@@ -28,4 +28,31 @@ public class Gestor {
     listaRestaurantes.add(restaurante);
     JOptionPane.showInputDialog("Restaurante añadido a la lista.");
   }
+
+  public static void modificarRestaurante() {
+    String nombre = JOptionPane.showInputDialog("Introduce el nombre del restaurante que quieres modificar: ");
+    for (Restaurante restaurante : listaRestaurantes) {
+      if (restaurante.getNombre().equalsIgnoreCase(nombre)) {
+        String nuevaLocalizacion = JOptionPane.showInputDialog("Introduce la nueva ubicación del restaurante: ");
+        String nuevoHorario = JOptionPane.showInputDialog("Introduce el nuevo horario de apertura del restaurante: ");
+        int nuevaPuntuacion;
+        while (true) {
+          String puntuacionMensaje = JOptionPane
+              .showInputDialog("Introduce la nueva puntuación que tiene el restaurante: ");
+          if (Validaciones.ComprobarPuntuacion(puntuacionMensaje)) {
+            nuevaPuntuacion = Integer.parseInt(puntuacionMensaje);
+            break;
+          } else {
+            JOptionPane.showInputDialog("La puntuación debe representarse en números enteros.");
+          }
+        }
+        restaurante.setLocalizacion(nuevaLocalizacion);
+        restaurante.setHorario(nuevoHorario);
+        restaurante.setPuntuacion(nuevaPuntuacion);
+        JOptionPane.showInputDialog("Restaurante modificado con éxito.");
+        return;
+      }
+    }
+    JOptionPane.showInputDialog("El restaurante no se encuentra en la lista.");
+  }
 }
