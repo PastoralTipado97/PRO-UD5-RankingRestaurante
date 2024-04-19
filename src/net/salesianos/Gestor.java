@@ -16,7 +16,7 @@ public class Gestor {
 
     while (true) {
       String puntuacionMensaje = JOptionPane.showInputDialog("Introduce la puntuación que tiene el restaurante: ");
-      if (Validaciones.ComprobarPuntuacion(puntuacionMensaje)) {
+      if (Validaciones.comprobarPuntuacion(puntuacionMensaje)) {
         puntuacion = Integer.parseInt(puntuacionMensaje);
         break;
       } else {
@@ -39,7 +39,7 @@ public class Gestor {
         while (true) {
           String puntuacionMensaje = JOptionPane
               .showInputDialog("Introduce la nueva puntuación que tiene el restaurante: ");
-          if (Validaciones.ComprobarPuntuacion(puntuacionMensaje)) {
+          if (Validaciones.comprobarPuntuacion(puntuacionMensaje)) {
             nuevaPuntuacion = Integer.parseInt(puntuacionMensaje);
             break;
           } else {
